@@ -1,9 +1,6 @@
 package com.example.hello_using_rest_api.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping({"/Hello", ""})
@@ -17,5 +14,11 @@ public class HelloRestAPI {
     public String sayHello(@RequestParam(value = "name") String name)
     {
         return "Hello " + name + "!"+"How r u";
+    }
+
+    @GetMapping("/param/{name}")
+    public String showHello(@PathVariable String name)
+    {
+        return "Hello " + name + "!";
     }
 }
